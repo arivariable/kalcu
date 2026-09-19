@@ -4,7 +4,7 @@ num1 ="";
 num2 ="";
 result ="";
 operator="default";
-let operators=["+","-","\u00F7","X","%","C","+/-","="]
+let operators=["+","-","\u00F7","X","%","C","+/-","=","<"]
 
 
 //main calculators container
@@ -42,7 +42,7 @@ let buttoncont = document.createElement("div");
 
 function makecalculator(){
 //buttons names
-const btnnames =["C","+/-","%","\u00F7","7","8","9","X","4","5","6","-","1","2","3","+","0","0",".","="];
+const btnnames =["C","+/-","%","\u00F7","7","8","9","X","4","5","6","-","1","2","3","+","0","<",".","="];
 //array to store clone buttons
 
 
@@ -76,9 +76,7 @@ for(let i=0;i<20;i++){
 container.appendChild(screen1);
 container.appendChild(screen2);
 container.appendChild(buttoncont);
-//managing double 0
-clonedbtn[17].remove();
-console.log(clonedbtn[17]);
+
 
 }
 
@@ -95,7 +93,7 @@ if(!e.target.matches("button")){
 
 if(operators.includes(e.target.id.slice(3))){
     if (result!=0){
-        num1=result;
+        num1=String(result);
         result=0;
         num2="";
     }
@@ -138,7 +136,14 @@ if(operators.includes(e.target.id.slice(3))){
                 num2 = num2*-1;
             }
             break;
-
+            case "<":
+                if(operator=="default"){
+                    num1= num1.slice(0,-1);
+                }
+                else {
+                    num2= num2.slice(0,-1);
+                }
+            break;
             case "=":
             operate();
             break;
