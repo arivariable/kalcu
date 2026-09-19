@@ -89,7 +89,15 @@ console.log(clonedbtn[0]);
 
 
 let handleinput =(e)=>{
+if(!e.target.matches("button")){
+    return;
+}
+
 if(operators.includes(e.target.id.slice(3))){
+    if (result!=0){
+        num1=result;
+    }
+
         console.log("operator");
         switch(e.target.id.slice(3)){
             case "+":
@@ -152,10 +160,11 @@ updatescreen();
 function clear(){
     num1 =0;
     num2 =0;
-    result = 0;
+    result=0;
     operator="default"
 }
 function operate(){
+    result = 0;
     A = Number(num1);
     B = Number(num2);
     
@@ -182,6 +191,8 @@ function operate(){
     
 
 }
+    operator="default";
+    num2=0;
     updatescreen();
 }
 function updatescreen(){
