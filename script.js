@@ -4,7 +4,7 @@ num1 ="";
 num2 ="";
 result ="";
 operator="default";
-let operators=["+","-","\u00F7","X","%","C","+/-","=","<"]
+let operators=["+","-","\u00F7","X","%","C","+/-","=","<","."]
 
 
 //main calculators container
@@ -92,9 +92,9 @@ if(!e.target.matches("button")){
 }
 
 if(operators.includes(e.target.id.slice(3))){
-    if (result!=0){
+    if (result!=""){
         num1=String(result);
-        result=0;
+        result="";
         num2="";
     }
 
@@ -144,6 +144,14 @@ if(operators.includes(e.target.id.slice(3))){
                     num2= num2.slice(0,-1);
                 }
             break;
+            case ".":
+                  if(operator=="default" && !num1.includes(".")){
+                    num1+= ".";
+                }
+                else if(!num2.includes(".")){
+                    num2+= ".";
+                }
+            break;
             case "=":
             operate();
             break;
@@ -166,13 +174,13 @@ updatescreen();
 
         
 function clear(){
-    num1 ="";
+    num1 =" ";
     num2 ="";
     result="";
     operator="default"
 }
 function operate(){
-    result = 0;
+    result = "";
     A = Number(num1);
     B = Number(num2);
     
@@ -207,10 +215,10 @@ function updatescreen(){
     A= Number(num1);
     B= Number(num2);
     if(operator=="default"){
-        screen1.innerText=A;
+        screen1.innerText=num1;
     }
     else if(operator!="default"){
-        screen1.innerText=A+" "+ sign +" "+ num2;
+        screen1.innerText=num1+" "+ sign +" "+ num2;
     }
     screen2.innerText=result;
 }
