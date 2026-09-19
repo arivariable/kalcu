@@ -1,0 +1,77 @@
+body{
+    overflow: hidden;
+
+    margin:100px;
+    background: linear-gradient(90deg,rgba(222, 225, 233,1) 0%, rgba(188, 195, 211,1) 100%);
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+}
+
+
+.btnconts{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.allbtns{
+    height:40px;
+    width:20px;
+    border-radius:10px;
+    margin:2px;
+    padding:2px;
+    flex:1;
+    /*    */
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to bottom, #feffff, #565757);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    box-shadow: 
+    inset 2px 2px 0px rgba(0, 0, 0, 0.4),  /* Top & Left highlight */
+    inset -2px -2px 0px rgba(254, 253, 253, 0.3); 
+
+}
+.allbtns:hover {
+  box-shadow: 
+    inset 2px 2px 0px rgba(162, 158, 158, 0.4),  /* Top & Left highlight */
+    inset -2px -2px 0px rgba(0, 0, 0, 0.3); 
+
+}
+
+.allbtns:active {
+  box-shadow: 
+    inset 2px 2px 0px rgb(246, 243, 243),  /* Top & Left highlight */
+    inset -2px -2px 0px rgb(246, 239, 239); 
+}
+
+
+#calculator {
+    height:300px;
+    background: linear-gradient(180deg,rgba(255,255,255,1)0%,rgb(0, 0, 0,1)100%);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.screen{
+    color:rgb(6, 7, 9);
+    background-color:rgba(145, 20, 20,0);
+    border-radius: 10px;
+    border:none;
+    height:100px;
+    width:200px;
+    flex:1;
+}
+
+#btn0{
+    flex:2;
+}
