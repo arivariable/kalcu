@@ -22,7 +22,7 @@ buttons.classList.add("allbtns");
 //screen
 let screen = document.createElement("div");
 screen.classList.add("screen");
-screen.innerText="test"
+screen.innerText=0;
 let screen1 = screen.cloneNode(true);
 let screen2= screen.cloneNode(true);
 
