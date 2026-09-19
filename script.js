@@ -1,8 +1,8 @@
 //calculator variables
 let num1,num2,operator,result,sign;
-num1 =0;
-num2=0;
-result =0;
+num1 ="";
+num2 ="";
+result ="";
 operator="default";
 let operators=["+","-","\u00F7","X","%","C","+/-","="]
 
@@ -22,7 +22,7 @@ buttons.classList.add("allbtns");
 //screen
 let screen = document.createElement("div");
 screen.classList.add("screen");
-screen.innerText=0;
+screen.innerText="";
 let screen1 = screen.cloneNode(true);
 let screen2= screen.cloneNode(true);
 
@@ -96,6 +96,8 @@ if(!e.target.matches("button")){
 if(operators.includes(e.target.id.slice(3))){
     if (result!=0){
         num1=result;
+        result=0;
+        num2="";
     }
 
         console.log("operator");
@@ -144,6 +146,7 @@ if(operators.includes(e.target.id.slice(3))){
 
         }
     }
+
 else if(operator!="default"){
     num2+= e.target.id.slice(3);
     console.log(num2);
@@ -158,9 +161,9 @@ updatescreen();
 
         
 function clear(){
-    num1 =0;
-    num2 =0;
-    result=0;
+    num1 ="";
+    num2 ="";
+    result="";
     operator="default"
 }
 function operate(){
@@ -192,17 +195,17 @@ function operate(){
 
 }
     operator="default";
-    num2=0;
     updatescreen();
+    num2="";
 }
 function updatescreen(){
-    A = Number(num1);
-    B = Number(num2);
+    A= Number(num1);
+    B= Number(num2);
     if(operator=="default"){
         screen1.innerText=A;
     }
-    if(operator!="default"){
-        screen1.innerText=A+" "+ sign +" "+ B;
+    else if(operator!="default"){
+        screen1.innerText=A+" "+ sign +" "+ num2;
     }
     screen2.innerText=result;
 }
